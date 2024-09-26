@@ -13,11 +13,16 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   delegate :single_choice?, to: :question_type, allow_nil: true
+  delegate :free_text?, to: :question_type, allow_nil: true
 
   scope :by_user, lambda { |user|
     return where(user_id: user).includes([:options]) unless user.admin?
 
     all.includes([:options])
+  }
+
+  scope :answered_by_answers_survey, lambda { |answers_survey|
+    joins(:answers).where(answers: { answers_survey_id: answers_survey.id })
   }
 
   private

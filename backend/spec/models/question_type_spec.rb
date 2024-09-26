@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe QuestionType, type: :model do
-  subject { create(:question_type) }
+  subject { build(:question_type) }
 
   describe 'uniqueness' do
     it { is_expected.to validate_uniqueness_of(:name).case_insensitive }
@@ -39,8 +39,10 @@ RSpec.describe QuestionType, type: :model do
   end
 
   describe 'factory only creates one instance of each question type' do
+    # rubocop:disable RSpec/IdenticalEqualityAssertion
     it { expect(create(:question_type_single)).to eq(create(:question_type_single)) }
 
     it { expect(create(:question_type_multiple)).to eq(create(:question_type_multiple)) }
+    # rubocop:enable RSpec/IdenticalEqualityAssertion
   end
 end

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { MdSync } from 'react-icons/md';
-import { Button } from 'styles/utils';
+import { Button } from '@styles/utils';
 
 export const StyledAppButton = styled(Button)`
   .text {
@@ -9,15 +9,6 @@ export const StyledAppButton = styled(Button)`
   width: 100%;
   height: 36px;
   font-weight: normal;
-
-  @media (max-width: 500px) {
-    padding: 10px;
-    width: fit-content;
-    height: fit-content;
-    .text {
-      display: none;
-    }
-  }
 `;
 
 export const LoadingIcon = styled(MdSync)`

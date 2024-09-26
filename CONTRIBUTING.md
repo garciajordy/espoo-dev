@@ -1,46 +1,21 @@
+## Code of Conduct
 
-### Requirements
-There are two options to setup your local environment, you can install everything mannualy or you can use docker :)
- - Traditional way
-   - Ruby 3.0.1
-   - PostgreSQL
-   - Google Chrome (make sure this browser is installed)
- - Docker
-   - docker
-   - docker-compose
+We welcome pull requests from everyone. By participating in this project, you
+agree to abide by the [CODE_OF_CONDUCT.md](https://github.com/espoo-dev/espoo-dev/blob/main/CODE_OF_CONDUCT.md)
+.
 
-# Opening a PR (backend)
+## Getting started / Setup
+
+[frontend_readme.md](https://github.com/espoo-dev/espoo-dev/blob/main/frontend/README.md)
+
+[backend_readme.md](https://github.com/espoo-dev/espoo-dev/blob/main/backend/README.md)
+
+## Opening a PR
 1. Fork the repo
 2. Clone the forked repo
 3. Check if the tests are working
-  - Traditional way
-    - On terminal/console do
-      ```bash
-      cd espoo-dev/backend
-      bundle install
-      bundle exec rake db:create db:migrate db:seed
-      bundle exec rspec
-      ```
-  - 🐳 Docker
-    - On terminal/console do
-      ```bash
-      cd espoo-dev
-      docker-compose up
-      docker-compose exec espoo_server sh
-      bundle exec rspec
-      ```
+4. Create a Pull Request
 
+# 📝 Docs (requests)
 
-# 🚪 Ports
-```sh
-# Backend
-localhost:3000
-
-#Frontend
-localhost:4000
-```
-
-# 📝 Docs
-
-1. [Postman requests](https://www.postman.com/grey-zodiac-51715/workspace/espoo/overview)
-1. [Class Diagram](https://drive.google.com/file/d/1681YmHrron_fxAb8tOebmzTbqy9qGM8p/view?usp=sharing)
+1. [Swagger](https://espoo.herokuapp.com/api-docs/index.html)

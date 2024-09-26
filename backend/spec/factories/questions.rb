@@ -13,6 +13,10 @@ FactoryBot.define do
     question_type { create(:question_type_multiple) }
   end
 
+  factory :free_text_question, parent: :question do
+    question_type { create(:question_type_free_text) }
+  end
+
   factory :question_with_correct_option, parent: :question do
     options { create_list :correct_option, 1 }
   end
@@ -21,7 +25,14 @@ FactoryBot.define do
     after(:create) do |question|
       create(:correct_option, question: question)
       question.ready_to_be_answered = true
-      question.save
+      question.save!
+    end
+  end
+
+  factory :question_with_answer, parent: :question do
+    after(:create) do |question|
+      create(:answer_with_option, question: question)
+      question.save!
     end
   end
 end

@@ -62,13 +62,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include JsonResponseHelper
+  config.include Devise::Test::IntegrationHelpers
 end
-
-require_relative 'support/shoulda_matchers'
-require_relative 'support/factory_bot'
-require_relative 'support/capybara'
-require_relative 'support/json_response_helper'
-
-# rubocop:disable Style/MixinUsage
-include JsonResponseHelper
-# rubocop:enable Style/MixinUsage

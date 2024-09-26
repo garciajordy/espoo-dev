@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :students, only: %i[index]
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+  resources :answers_surveys, only: %i[create]
+  resources :surveys, only: %i[index]
+  resources :questions, only: %i[show]
 
   namespace :admin do
     resources :users
@@ -18,7 +22,7 @@ Rails.application.routes.draw do
       resources :users, only: %i[index create]
       resources :surveys, only: %i[index show]
       resources :roles, only: %i[index]
-      resources :answers_surveys, only: %i[create]
+      resources :answers_surveys, only: %i[create show]
       resources :answers, only: %i[create]
     end
   end
